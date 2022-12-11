@@ -16,6 +16,7 @@
 
 ```developmentOnly 'org.springframework.boot:spring-boot-devtools'```
 
+<br>
 
 ### < 웹개발 방법 >
 - `정적컨텐츠` : html 파일을 바로 전달
@@ -24,10 +25,13 @@
   - 프론트엔드에서 Vue, React을 활용한 개발을 할 때 사용
   - 서버간 데이턴 전달 할 때 사용
 
+<br>
+
 #### 5. [정적컨텐츠](https://www.youtube.com/watch?v=yZVTnaudGXk&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=6)
   - `static/hello-static` : http://localhost:8080/hello-static.html
   ![img.png](img.png)
 
+<br>
 
 #### 6. [MVC와 템플릿 엔진](https://www.youtube.com/watch?v=H8LG-GncT94&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=7)
 - `templates/hello-template` : http://localhost:8080/hello-mvc?name=spring
@@ -41,6 +45,7 @@
   ```
   ![img_1.png](img_1.png)
 
+<br>
 
 #### 7. [API](https://www.youtube.com/watch?v=ec1jW_jBCmI&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=8)
 1. `@ResponseBody`
