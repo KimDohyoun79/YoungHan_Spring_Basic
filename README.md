@@ -9,19 +9,20 @@
 
 ---
 
-
 <br>
 
 #### 4. [View 환경 설정](https://www.youtube.com/watch?v=P6AgXuh-fxA&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=4)
-- devtools 라이브러리를 추가하면 `html`파일을 컴파일만 해줌녀 서버 재시작 없이 View파일 변경 가능
+- `devtools 라이브러리`를 추가하면 `html`파일을 컴파일만 해주면 서버 재시작 없이 View파일 변경 가능
 
 ```developmentOnly 'org.springframework.boot:spring-boot-devtools'```
 
 <br>
+<br>
 
 ### < 웹개발 방법 >
-- `정적컨텐츠` : html 파일을 바로 전달
-- `MVC와 템플릿 엔진` : 서버에서 동적으로 작업을 하여 전달
+- `<HTML>`
+  - `정적컨텐츠` : html 파일을 바로 전달
+  - `MVC와 템플릿 엔진` : 서버에서 동적으로 작업을 하여 전달
 - `API` : JSON 형식으로 전달한다.
   - 프론트엔드에서 Vue, React을 활용한 개발을 할 때 사용
   - 서버간 데이턴 전달 할 때 사용
@@ -91,7 +92,6 @@
     ```
   ![img_2.png](img_2.png)
 
+<br>
 
-
-
-
+#### 8.
