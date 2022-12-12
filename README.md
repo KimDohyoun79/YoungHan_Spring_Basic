@@ -21,17 +21,22 @@
 
 ### < 웹개발 방법 >
 - `<HTML>`
-  - `정적컨텐츠` : html 파일을 바로 전달
-  - `MVC와 템플릿 엔진` : 서버에서 동적으로 작업을 하여 전달
-- `API` : JSON 형식으로 전달한다.
+  - `정적컨텐츠` : html 파일을 바로 반환
+  - `MVC와 템플릿 엔진` : 서버에서 동적으로 작업을 하여 반환
+- `API` : Default => `JSON` 형식으로 전달
   - 프론트엔드에서 Vue, React을 활용한 개발을 할 때 사용
-  - 서버간 데이턴 전달 할 때 사용
+  - 서버 간 데이터 전달 할 때 사용
 
 <br>
 
 #### 5. [정적컨텐츠](https://www.youtube.com/watch?v=yZVTnaudGXk&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=6)
-  - `static/hello-static` : http://localhost:8080/hello-static.html
-  ![img.png](img.png)
+- `http://localhost:8080/name.html` 으로 접근
+- `static/hello-static` : http://localhost:8080/hello-static.html
+- `static/index` : Default Page (서버 접속 시 기본 정적페이지를 보여준다.)
+  - Controller 에서 다른 페이지나 ResponseBody값을 넘기면 `static/index`페이지 말고 다른 페이지를 우선적으로 보여준다.
+- ![img.png](img.png)
+1. 서버 요청을 확인하고 `스프링 컨테이너`에서 관련 요청 확인
+2. `스프링 컨테이너` 조회를 후 없으면 관련 `html`을 확인하여 반환
 
 <br>
 
