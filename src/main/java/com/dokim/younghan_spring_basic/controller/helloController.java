@@ -2,10 +2,7 @@ package com.dokim.younghan_spring_basic.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class helloController {
@@ -63,6 +60,7 @@ public class helloController {
         hello.setNum(num);
         return hello;
     }
+
 
     static class Hello {
         private String name;

@@ -106,7 +106,10 @@
   - XML형식으로 변경 가능
   - 객체를 반환하면 스프링부트는 [HttpMessageConverter]를 통해 기본값 JSON형태로 변경하여 반환한다.
    
-   ```java
+- `@RequestBody` : JSON 형식의 요청 => 자바 객체로 변환
+- `@ResponseBody` : 자바 객체 => JSON 이나 XML 형식의 문자열로 변환
+- [@RequestBody, @ResponseBody 참고 자료](https://ocblog.tistory.com/49)
+```java
     // 7.2 API
     @GetMapping("/hello-api") // http://localhost:8080/hello-api?name=dokim&num=010
     @ResponseBody
@@ -140,11 +143,120 @@
             this.name = name;
         }
     }
-    ```
+```
   ![img_2.png](img_2.png)
 
 
 <br>
 
 
-#### 8.
+#### 8. [비지니스 요구사항 정리](https://www.youtube.com/watch?v=0_oeeYDLSjM&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=9) 
+
+![img_3.png](img_3.png)
+![img_4.png](img_4.png)
+
+
+
+<br>
+
+
+#### 9. [회원도메인과리포지토리만들기](https://www.youtube.com/watch?v=Gul8sv7cf8g&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=10) 
+
+- Repository 디렉토리 확인
+  - [Optional 사용법 블로그](https://mangkyu.tistory.com/70)
+  - [Optional 사용법 유튜브](https://www.youtube.com/watch?v=W_kPjiTF9RI)
+  - [람다식 유뷰트](https://www.youtube.com/watch?v=3wnmgM4qK30&t=975s)
+  - [stream, filter 유튜브](https://www.youtube.com/watch?v=7Kyf4mMjbTQ&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=163)
+
+
+<br>
+
+
+#### 10. [회원도메인과 리포지토리 테스트](https://www.youtube.com/watch?v=OmcCT0bU4Kk&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=11)
+
+- 테스트 순서는 보장되지 않는다. 
+- 각각 테스트들은 의존성 없이 설계가 되어야 한다.
+- 테스트 객체(메소드)를 실행하고 끝나면 공용 데이터를 지워야 한다.
+```java
+    @Test
+    void findByName() {
+        Member member1 = new Member();
+        member1.setName("spring1");
+        repository.save(member1);
+
+        Member member2 = new Member();
+        member2.setName("spring2");
+        repository.save(member2);
+
+        Member result = repository.findByName("spring1").get();
+
+        org.assertj.core.api.Assertions.assertThat(member1).isEqualTo(result);
+    }
+
+    @Test
+    void findAll() {
+        Member member1 = new Member();
+        member1.setName("spring1");
+        repository.save(member1);
+
+        Member member2 = new Member();
+        member2.setName("spring2");
+        repository.save(member2);
+
+        List<Member> result = repository.findAll();
+
+        org.assertj.core.api.Assertions.assertThat(result.size()).isEqualTo(2);
+    }
+```
+![img_5.png](img_5.png)
+- 위의 코드는 위의 사진처럼 에러를 발생시킨다.
+- 테스트 순서는 보장하지 않지만 `findAll()` 이 먼저 테스트하고 데이터가 있는 상태에서 
+`findByName`을 실행하면 똑같은 Member 이름을 갖는 객체를 생성하게 된다.
+
+<br>
+
+<해결 방법>
+- `@AfterEach` : 테스트 객체들이 끝날 때 마다 실행한다.
+  ```java
+    public void clearStore(){
+        store.clear();
+    }
+  ```
+  - 데이터를 삭제하는 메소드 작성
+  - 테스터 객체에서 테스트 메소들을 확인하며 `@AfterEach`로 데이터를 정리하게 한다.
+
+
+<br>
+
+
+#### 11. [회원서비스 개발](https://www.youtube.com/watch?v=Ep-CIHRghFw&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=12)
+
+- 비지니스 로직을 구현
+- `회원가입` => `Ctrl + Shift + Alt + T` : 메소드 추출
+- `전체 회원 조회`
+- `일반 회원 조회`
+
+
+<br>
+
+
+#### 12. [회원서비스 테스트](https://www.youtube.com/watch?v=NffW47IBg4I&list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd&index=13)
+
+- `Ctrl + Shift + T` : 테스트 만들기
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
